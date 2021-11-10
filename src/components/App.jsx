@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { googleAPIKey } from '../keys';
 import './App.css';
 import VideoPlayer from './VideoPlayer/VideoPlayer.jsx'
+import CommentsForm from './CommentsRename/CommentsForm';
 
 class App extends Component {
     constructor (props) {
@@ -11,9 +12,32 @@ class App extends Component {
         };
     }
     
+    componentDidMount() {
+        this.getVideo();
+        this.createComment();
+    }
+
+    getVideo = async () => {
+        let response = await axios.get('http://127.0.0.1:8000/youtube/');
+        this.setState({
+            DisplayVideo: response.data
+        });
+    }
+    
+    createComment = async (newComment) => {
+        let response = await axios.post("http://127.0.0.1:8000/youtube/", newComment);
+        this.setState({
+            newComment: response.data
+        });
+        this.getVideo();
+    }
+
     render() {
         return (
-               <VideoPlayer video_id = {this.state.DisplayVideo}/>
+            <div>          
+                <VideoPlayer video_id = {this.state.DisplayVideo}/>
+                <CommentsForm newComment={this.createComment} />
+            </div>
         )
     }
 }
