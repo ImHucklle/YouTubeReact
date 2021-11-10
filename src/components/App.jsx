@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { googleAPIKey } from '../keys';
 import './App.css';
 import VideoPlayer from './VideoPlayer/VideoPlayer.jsx'
+import SearchBar from './SearchBar/SearchBar.jsx';
 
 class App extends Component {
     constructor (props) {
@@ -13,7 +14,10 @@ class App extends Component {
     
     render() {
         return (
-               <VideoPlayer video_id = {this.state.DisplayVideo}/>
+            <div>
+            <SearchBar/>
+            <VideoPlayer video_id = {this.state.DisplayVideo}/>
+            </div>
         )
     }
 }
