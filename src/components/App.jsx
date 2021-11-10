@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { googleAPIKey } from '../keys';
 import './App.css';
 import VideoPlayer from './VideoPlayer/VideoPlayer.jsx'
-import CommentsForm from './CommentsRename/CommentsForm';
+import CommentsForm from './CommentsForm/CommentsForm';
 import SearchBar from './SearchBar/SearchBar.jsx';
 
 class App extends Component {
