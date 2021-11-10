@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { googleAPIKey } from '../keys';
 import './App.css';
+import {googleAPIKeys} from './keys';
 
 class App extends Component {
     constructor (props) {
@@ -10,7 +11,11 @@ class App extends Component {
 
     render() {
         return (
-            <h1>YouTube Main Component</h1>
+                <body>
+                    <iframe id="ytplayer" type="text/html" width="640" height="360"
+                    src="https://www.youtube.com/watch?v=XqpQpt_cmhE?autoplay=1&origin=http://example.com"
+                    frameborder="0"></iframe>
+                </body>
         )
     }
 }
