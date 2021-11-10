@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import { googleAPIKey } from '../keys';
 import './App.css';
-import {googleAPIKeys} from './keys';
+import VideoPlayer from './VideoPlayer/VideoPlayer.jsx'
 
 class App extends Component {
     constructor (props) {
         super(props);
-        this.state = {};
+        this.state = {
+            DisplayVideo: 'iVAZL7zzzqI'
+        };
     }
-
+    
     render() {
         return (
-                <body>
-                    <iframe id="ytplayer" type="text/html" width="640" height="360"
-                    src="https://www.youtube.com/watch?v=XqpQpt_cmhE?autoplay=1&origin=http://example.com"
-                    frameborder="0"></iframe>
-                </body>
+               <VideoPlayer Video = {this.state.DisplayVideo}/>
         )
     }
 }
