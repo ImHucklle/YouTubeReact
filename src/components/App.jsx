@@ -13,7 +13,7 @@ class App extends Component {
     
     render() {
         return (
-               <VideoPlayer Video = {this.state.DisplayVideo}/>
+               <VideoPlayer video_id = {this.state.DisplayVideo}/>
         )
     }
 }
