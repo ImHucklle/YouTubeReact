@@ -3,6 +3,7 @@ import { googleAPIKey } from '../keys';
 import './App.css';
 import VideoPlayer from './VideoPlayer/VideoPlayer.jsx'
 import CommentsForm from './CommentsRename/CommentsForm';
+import SearchBar from './SearchBar/SearchBar.jsx';
 
 class App extends Component {
     constructor (props) {
@@ -34,7 +35,8 @@ class App extends Component {
 
     render() {
         return (
-            <div>          
+            <div>
+                <SearchBar/>          
                 <VideoPlayer video_id = {this.state.DisplayVideo}/>
                 <CommentsForm newComment={this.createComment} />
             </div>
