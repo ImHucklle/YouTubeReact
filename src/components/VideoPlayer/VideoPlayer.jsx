@@ -8,8 +8,7 @@ const VideoPlayer = ({ video_id }) => (
             src={`https://www.youtube.com/embed/${video_id}`} // ` back tik is used to read the variable
             frameborder="0"></iframe>
         </div>
-    </body>    
-
+    </body>
 );
 
 export default VideoPlayer;
