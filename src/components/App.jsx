@@ -3,21 +3,31 @@ import './App.css';
 import Header from './Header/Header.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
 import RecommendedVideos from './RecommendedVideos/RecommendedVideos';
+
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
 // import axios from 'axios';
 // import { googleAPIKey } from '../keys';
 // import VideoPlayer from './VideoPlayer/VideoPlayer.jsx'
 // import CommentsForm from './CommentsForm/CommentsForm';
-// import SearchBar from './SearchBar/SearchBar.jsx';
 
 function App() {
     return (
       <div className="app">
-        <Header />
-
-        <div className="app__page">
-          <Sidebar />
-          <RecommendedVideos />
-        </div>
+        <Router>
+          <Switch>
+            <Route path="/search">
+              <h1>Search Page</h1>
+            </Route>
+            <Route path="/">
+              <Header />
+              <div className="app__page">
+                <Sidebar />
+                <RecommendedVideos />
+              </div>
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }
