@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import Header from './Header/Header.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
+import SearchPage from "./SearchPage/SearchPage";
 import RecommendedVideos from './RecommendedVideos/RecommendedVideos';
-
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 // import axios from 'axios';
@@ -19,7 +19,10 @@ function App() {
 
           <Switch>
             <Route path="/search/:searchTerm">
-              <h1>Search Page</h1>
+              <div className="app__page">
+                <Sidebar />
+                <SearchPage />
+              </div>
             </Route>
             <Route path="/">
               <div className="app__page">
