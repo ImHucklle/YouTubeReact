@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { googleAPIKey } from '../keys';
 import './App.css';
-import VideoPlayer from './VideoPlayer/VideoPlayer.jsx'
+import VideoPlayer from './VideoPlayer/VideoPlayer.jsx';
 import CommentsForm from './CommentsForm/CommentsForm';
 import SearchBar from './SearchBar/SearchBar.jsx';
 
