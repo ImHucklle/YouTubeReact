@@ -21,7 +21,7 @@ function App() {
             <Route path="/">
               <Header />
               <div className="app__page">
-                <RecommendedVideos />
+                <VideoPlayer video_id='iVAZL7zzzqI'/>
                 <Sidebar />
               </div>
             </Route>
