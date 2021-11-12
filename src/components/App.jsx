@@ -5,6 +5,7 @@ import Sidebar from './Sidebar/Sidebar.jsx';
 import RecommendedVideos from './RecommendedVideos/RecommendedVideos';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import VideoPlayer from './VideoPlayer/VideoPlayer';
+import CommentsForm from './CommentsForm/CommentsForm';
 
 // import axios from 'axios';
 // import { googleAPIKey } from '../keys';
@@ -24,6 +25,7 @@ function App() {
                 <VideoPlayer video_id='fhjXrhy1fuU'/>
                 <Sidebar />
               </div>
+                <CommentsForm/>
             </Route>
           </Switch>
         </Router>
