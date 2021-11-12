@@ -1,8 +1,14 @@
+import React from 'react';
+import Message from './CommentSectionCopenents/Message/Message'
+
 function MessageScroll(props){
     return ( 
-        <div>
-
+        <>
+        <Message />
+        <div className='bottomBar'>
+        <div className = 'loader'/>
         </div>
+        </>
      );
 }
  
