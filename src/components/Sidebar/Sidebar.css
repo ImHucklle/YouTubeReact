@@ -9,3 +9,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.sidebar__Icons {
+    display: flex;
+    align-items: center;
+}

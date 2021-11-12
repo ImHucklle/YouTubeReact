@@ -2,32 +2,27 @@ import React from 'react';
 import './App.css';
 import Header from './Header/Header.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
-import SearchPage from "./SearchPage/SearchPage";
 import RecommendedVideos from './RecommendedVideos/RecommendedVideos';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import VideoPlayer from './VideoPlayer/VideoPlayer';
 
 // import axios from 'axios';
 // import { googleAPIKey } from '../keys';
-// import VideoPlayer from './VideoPlayer/VideoPlayer.jsx'
 // import CommentsForm from './CommentsForm/CommentsForm';
 
 function App() {
     return (
       <div className="app">
         <Router>
-        <Header />
-
           <Switch>
-            <Route path="/search/:searchTerm">
-              <div className="app__page">
-                <Sidebar />
-                <SearchPage />
-              </div>
+            <Route path="/search">
+              <h1>Search Page</h1>
             </Route>
             <Route path="/">
+              <Header />
               <div className="app__page">
-                <Sidebar />
                 <RecommendedVideos />
+                <Sidebar />
               </div>
             </Route>
           </Switch>

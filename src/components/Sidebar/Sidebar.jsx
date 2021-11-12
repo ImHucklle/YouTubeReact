@@ -9,6 +9,7 @@ import OndemandVideoIcon from '@material-ui/icons/OndemandVideo';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
+import RecommendedVideos from "../RecommendedVideos/RecommendedVideos";
 
 import './Sidebar.css';
 import { OndemandVideo, ThumbUpAltOutlined, VideoLibrary } from "@material-ui/icons";
@@ -16,19 +17,36 @@ import { OndemandVideo, ThumbUpAltOutlined, VideoLibrary } from "@material-ui/ic
 function Sidebar({}){
     return(
         <div className="sidebar">
-            <SidebarRow selected Icon={HomeIcon} title="Home" />
-            <SidebarRow Icon={WhatshotIcon} title="Trending" />
-            <SidebarRow Icon={SubscriptionsIcon} title="Subscription" />
+            <div className="sidebar__Icons">
+                <SidebarRow selected Icon={HomeIcon} title="Home" />
+                <SidebarRow Icon={WhatshotIcon} title="Trending" />
+                <SidebarRow Icon={SubscriptionsIcon} title="Subscription" />
+            </div>
             <hr />
-            <SidebarRow Icon={VideoLibraryIcon} title="Library" />
-            <SidebarRow Icon={HistoryIcon} title="History" />
-            <SidebarRow Icon={OndemandVideoIcon} title="Your Videos" />
-            <SidebarRow Icon={WatchLaterIcon} title="Watch Later" />
-            <SidebarRow Icon={ThumbUpAltOutlinedIcon} title="Liked Videos" />
-            <SidebarRow Icon={ExpandMoreOutlinedIcon} title="Show more" />
-            <hr />
+                <div>
+                <RecommendedVideos />
+                </div>
         </div>
     )
 }
+
+// function RecommendedVideos(){
+//     return(
+//         <div className="recommendedVideos">
+//             <h2>Recommended</h2>
+//             <div className="recommendedVideos__videos">
+//                 <VideoCard 
+//                     title="THE BATMAN - Main Trailer"
+//                     views="33.3 Million"
+//                     timestamp="1 month ago"
+//                     channelImage="https://yt3.ggpht.com/ytc/AKedOLRF9_MOYUXfJ-8Bxknj0YSma7RNmZ6TU9jInnpxvg=s176-c-k-c0x00ffffff-no-rj"
+//                     channel="Warner Brothers Pictures"
+//                     image="https://i.ytimg.com/an_webp/mqqft2x_Aa4/mqdefault_6s.webp?du=3000&sqp=CKK6tYwG&rs=AOn4CLDDV8m43H4nyN4I9uQwupreMNHSPA"
+//                 />
+//             </div>
+//         </div>
+//     )
+// }
+
 
 export default Sidebar;
