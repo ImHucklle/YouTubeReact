@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
 import TopCommentsBox from './CommentSectionCopenents/TopCommentsBox/TopCommentsBox'
-class CommentSection extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            comment: '',
-         }
-    }
+import MessageScroll from './MessageScroll'
 
-
-    render() { 
+    function CommentSection() { 
         return ( 
             <div className='ColHolder'>
             <TopCommentsBox autoFocus={false}/>
+            <MessageScroll />
             </div>
         );
     }
-}
  
 export default CommentSection;
