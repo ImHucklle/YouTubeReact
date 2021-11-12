@@ -10,7 +10,7 @@ class CommentsForm extends Component {
 
     handleChange = (event) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.comment]: event.target.value
         })
     }
 
@@ -22,9 +22,9 @@ class CommentsForm extends Component {
     render() { 
         return ( 
             <form onSubmit={(event) => this.handleSubmit(event)}>
-                <label>Comment:</label>
-                <input name='artist' onChange={this.handleChange} value={this.state.artist}/> <br />
-                <button type='submit'>Add Song</button>
+                <label>Add a public comment...</label>
+                <input name='comment' onChange={this.handleChange} value={this.state.comment}/> <br />
+                <button type='submit'>Comment</button>
             </form>
          );
     }
