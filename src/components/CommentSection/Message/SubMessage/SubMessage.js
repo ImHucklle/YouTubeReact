@@ -1,8 +1,5 @@
 import React, { useRef, useState, useContext } from 'react';
-import './Message.css'
-import CommentsBox from '../CommentsBox/CommentsBox';
-import SubMessage from './SubMessage/SubMessage';
-
+import SubCommentsBox from '../../CommentsBox/SubComments/SubComments';
 
 const showReply = React.createContext();
 
@@ -10,32 +7,18 @@ export function useOpenReply() {
     return useContext(showReply);
 }
 
-function Message(props){
+function SubMessage(props){
 
 
     const likeIcon = useRef();  
     const numLikes = useRef();
 
-    const[arrowUp, setArrowUp] = useState(false);
     const[openReply, setOpenReply] = useState(false);
 
     //when canel/reply button  press
 
     const changeOpenReply=() =>{
         setOpenReply(prevState => prevState = !prevState)
-    }
-    // toggle arrow up down
-    let arrow = <i className='fas fa-caret-down'></i>
-
-    const changeArrow= () => {
-        setArrowUp(prevState => prevState = !prevState)
-    }
-
-    if(arrowUp){
-        arrow = <i className='fas fa-caret-up'></i>
-    }
-    else{
-        arrow = <i className='fas fa-caret-down'></i>
     }
 
     // LIKE message
@@ -81,22 +64,12 @@ function Message(props){
                 }
             </section>
             <showReply.Provider value="changeOpenReply">
-                {openReply && <CommentsBox 
+                {openReply && <SubCommentsBox 
                 autoFocus={true} />}
             </showReply.Provider>
-            <section className='arrowReplies' onClick={changeArrow}>
-                {arrow}
-                <div>View replies</div>
-            </section>
-            { arrowUp && (
-            <section className="subMessages">
-                    <SubMessage user="Annonymous" message="Agreed" likes={2} />
-            </section>
-            )
-            }
         </section>
         </>
     )
 }
 
-export default Message;
+export default SubMessage;

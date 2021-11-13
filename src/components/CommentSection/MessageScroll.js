@@ -1,5 +1,6 @@
 import React from 'react';
 import Message from './Message/Message';
+import SubMessage from './Message/SubMessage/SubMessage';
 
 function MessageScroll(props){
     return ( 
