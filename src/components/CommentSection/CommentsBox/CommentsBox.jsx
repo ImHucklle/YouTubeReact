@@ -1,25 +1,31 @@
 import React, {useRef, useState} from 'react';
-import '../CommentBox.css'
+import './CommentsBox.css'
+import {useOpenReply} from '../Message/Message';
 
-function TopCommentsBox (props){
+function CommentsBox (props){
+
+    const changeOpenReply = useOpenReply();
 
     const message=useRef(null);
-
+    // Trigger the underline animation
     const[showCommentLine, setCommentLine] = useState(false);
-
+    // True on focus. False on CANCEL press
     const[showButtons, setShowButtons] = useState(false);
-
+    // True on input data. False when input is blank.
     const[enableBtn, setEnableBtn] = useState(true);
 
+    // When they click on the Input. Show the underline and the button.
     const commentFocus = () =>{
         setCommentLine(true);
         setShowButtons(true);
     }
 
+    // When they click on the Input. Hide the underline.
     const commentFocusOut = () => {
         setCommentLine(false);
     }
 
+    // If Input value isn't empty then ENABLE the COMMENT BTN.
     const commentStroke = event => {
         let currentMessage = event.target.value;
         if(currentMessage){
@@ -60,11 +66,10 @@ function TopCommentsBox (props){
                 <button className='commentButton sendButton' disabled={enableBtn} onClick={sendComment} >COMMENT</button>
                 <button className="commentButton" style={{color: "gray", backgroundColor:"transparent"}} 
                 onClick={() =>{
-                    setShowButtons(false);
-                    message.current.value =""
+                    setShowButtons(false)
+                    changeOpenReply() // Why won't this work?
                 }}>CANCEL</button>
 
-                
 
                 </>
             )}
@@ -72,4 +77,4 @@ function TopCommentsBox (props){
      );
 }
  
-export default TopCommentsBox;
+export default CommentsBox;

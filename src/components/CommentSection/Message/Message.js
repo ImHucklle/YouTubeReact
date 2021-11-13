@@ -1,9 +1,18 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import './Message.css'
+import CommentsBox from '../CommentsBox/CommentsBox';
+
+
+const showReply = React.createContext();
+
+export function useOpenReply() {
+    return useContext(showReply);
+}
+
 function Message(props){
 
 
-    const likeIcon = useRef();
+    const likeIcon = useRef();  
     const numLikes = useRef();
 
     const[arrowUp, setArrowUp] = useState(false);
@@ -12,13 +21,13 @@ function Message(props){
     //when canel/reply button  press
 
     const changeOpenReply=() =>{
-        setOpenReply(prevState=> prevState = !prevState)
+        setOpenReply(prevState => prevState = !prevState)
     }
     // toggle arrow up down
     let arrow = <i className='fas fa-caret-down'></i>
 
     const changeArrow= () => {
-        setArrowUp(prevState=> prevState = !prevState)
+        setArrowUp(prevState => prevState = !prevState)
     }
 
     if(arrowUp){
@@ -39,13 +48,13 @@ function Message(props){
         <>
         <section className='messageContainer'>
             <div className='messageUser'>{props.user}</div>
-            <i className='fas fa-user-cirle'></i>
+            <i className='fas fa-user-circle'></i>
             <div className='messageText'>{props.message}</div>
             <section className='messageIconsContainer'>
-                <i className='fas fa-thumbs-up'></i>
+                <i className='fas fa-thumbs-up' ref={likeIcon} onClick={likeComment}></i>
                 <div ref = {numLikes}>{props.likes}</div>
                 <i className='fas fa-thumbs-down'></i>
-                {/* {
+                {
                     !props.editable ? (
                         <div onClick={changeOpenReply}
                         style={{cursor:'pointer'}}>REPLY</div>
@@ -53,8 +62,12 @@ function Message(props){
                         <div onClick={deleteMessage}
                         style={{cursor: "pointer"}}>DELETE</div>
                     )
-                } */}
+                }
             </section>
+            <showReply.Provider value="changeOpenReply">
+                {openReply && <CommentsBox 
+                autoFocus={true} />}
+            </showReply.Provider>
             <section className='arrowReplies' onClick={changeArrow}>
                 {arrow}
                 <div>View replies</div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TopCommentsBox from './CommentSectionCopenents/TopCommentsBox/TopCommentsBox';
-import MessageScroll from './MessageScroll';
 import './CommentSection.css'
+import TopCommentsBox from './CommentsBox/TopCommentsBox/TopCommentsBox';
+import MessageScroll from './MessageScroll';
 
     function CommentSection() { 
         return ( 

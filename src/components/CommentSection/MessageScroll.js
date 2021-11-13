@@ -1,5 +1,5 @@
 import React from 'react';
-import Message from './CommentSectionCopenents/Message/Message'
+import Message from './Message/Message';
 
 function MessageScroll(props){
     return ( 
@@ -10,6 +10,6 @@ function MessageScroll(props){
         </div>
         </>
      );
-}
+}   
  
 export default MessageScroll;
