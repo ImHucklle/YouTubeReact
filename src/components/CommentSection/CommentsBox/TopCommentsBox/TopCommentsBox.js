@@ -66,9 +66,6 @@ function TopCommentsBox (props){
                     setShowButtons(false);
                     message.current.value =""
                 }}>CANCEL</button>
-
-                
-
                 </>
             )}
         </form>

@@ -40,12 +40,6 @@ function CommentsBox (props){
         event.preventDefault();
     }
 
-
-
-
-
-
-
     return ( 
         <form>
             <section className="commentBox">
@@ -56,7 +50,7 @@ function CommentsBox (props){
                     ref={message}
                     onFocus={commentFocus}
                     onBlur={commentFocusOut}
-                    onKeyUp={commentStroke}
+                      onKeyUp={commentStroke}
                     />
             {/* Underline Starts here */}
             {showCommentLine && <div className="commentLine"></div>}
@@ -67,7 +61,8 @@ function CommentsBox (props){
                 <button className="commentButton" style={{color: "gray", backgroundColor:"transparent"}} 
                 onClick={() =>{
                     setShowButtons(false)
-                    changeOpenReply() // Why won't this work?
+                    // changeOpenReply() // Why won't this work?
+                    message.current.value =""
                 }}>CANCEL</button>
 
 
