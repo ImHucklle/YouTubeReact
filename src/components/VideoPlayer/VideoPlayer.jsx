@@ -1,16 +1,24 @@
-import React from "react";
+import React, { Component } from "react";
 import "./VideoPlayer.css"
 
-const VideoPlayer = ({ video_id }) => (
-    <body>
-        <div className="videoPlayer">
-            <div className="video-responsive">
-                <iframe id="ytplayer" type="text/html" width="640" height="360"
-                src={`https://www.youtube.com/embed/${video_id}`} // ` back tik is used to read the variable
-                frameborder="0"></iframe>
-            </div>
-        </div>
-    </body>
-);
+class VideoPlayer extends Component {
+    constructor(props){
+        super(props);
+        this.state =  {
+            video_id: ''
+        };
+    }
 
+    render(){
+        return (
+            <body>
+                <div>{this.props.title}</div>
+                    <iframe id="ytplayer" type="text/html" width="640" height="360"
+                    src={`https://www.youtube.com/embed/${this.props.video_id}`}
+                    frameborder="0"></iframe>
+                <div>{this.props.description}</div>
+             </body>
+        );
+    }
+}
 export default VideoPlayer;
