@@ -14,8 +14,8 @@ class App extends Component {
     constructor (props) {
         super(props);
         this.state = {
-          displayVideo: [],
-          relatedVideos: [],
+          displayVideo: '',
+          relatedVideos: '',
           video_id: '',
           title: '',
           description: '',
@@ -34,6 +34,8 @@ class App extends Component {
       this.setState({
         displayVideo: response.data.items,
         video_id: response.data.items[0].id.video_id,
+        title: response.data.items[0].snippet.title,
+        description: response.data.items[0].snippet.description
       },() => this.getRelatedVideos())
      }
 
@@ -41,6 +43,7 @@ class App extends Component {
       let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedVideo=${this.state.video_id}&part=snippet&type=video&key=${googleAPIKey}`)
       this.setState({
         relatedVideos: response.data.items,
+        video_id: response.data.items[0].id.video_id,
         title: response.data.items[0].snippet.title,
         description: response.data.items[0].snippet.description    
       })
@@ -66,6 +69,7 @@ class App extends Component {
                 <Header getVideo={this.getVideo}/>
                 <VideoPlayer video_id={this.state.video_id} title={this.state.title} description={this.state.description} />
                 <Sidebar />
+
                 <CommentSection/>
               </div>
             </div>

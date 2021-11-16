@@ -12,8 +12,7 @@ function RecommendedVideos(props){
         <div className="recommendedVideos">
             <h2>Recommended</h2>
             <div className="recommendedVideos__videos">
-                
-             </div>
+            </div>
         </div>
     )
 }
